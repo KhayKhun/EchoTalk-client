@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer components{
+    body {
+        @apply bg-[#313338] text-gray-200 flex justify-center
+    }
+    .label {
+        @apply text-sm mt-4 mb-2
+    }
+
+    .container {
+        @apply grid grid-cols-12 gap-4 w-full m-0 p-0
+    }
+    .room {
+        @apply col-span-3 bg-[#2d2d30]
+    }
+    .message{
+        @apply col-span-9
+    }
+    .message-container{
+        @apply relative h-screen flex flex-col items-center p-[2%]
+    }
+    .message-container footer{
+        @apply absolute w-[96%] bottom-[2%] rounded-md border border-transparent bg-[#383A40] flex justify-center gap-3 items-center p-1
+    }
+    .message-container footer input {
+        @apply max-h-[80px] outline-none bg-transparent text-sm p-3
+    }
+    .message-container ul{
+        @apply flex flex-col gap-4 w-full relative h-[70vh] overflow-y-scroll
+    }
+    .message-card{
+        @apply flex gap-5 p-2
+    }
+    .message-username {
+        @apply text-[16px] tracking-wider font-semibold inline
+    }
+    .message-time {
+        @apply text-gray-400 text-sm font-medium ml-4
+    }
+    .message-text {
+        @apply text-gray-100 text-[13px] mt-2 font-normal
+    }
+
+    .chat-pf{
+        @apply w-auto h-[50px] rounded-full
+    }
+    .server-list{
+        @apply flex flex-col gap-1 items-center
+    }
+    .server-list button{
+        @apply hover:bg-gray-700 w-full flex flex-col items-center
+    }
+
+    .create-server-btn {
+        @apply bg-blue-600 text-sm text-gray-100 w-full rounded-lg h-[40px] mt-[4px]
+    } 
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+
+::-webkit-scrollbar {
+    width: 4px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b4b4f;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1f1f20;
 }
