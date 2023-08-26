@@ -18,12 +18,10 @@ export default function Home() {
 
   useEffect(()=>{
     setSocketId(socket?.id)
-    console.log(socket.id)
   },[socket])
 
   useEffect(()=>{
     socket.emit(EVENTS.CLIENT.FRESHER,{})
-    console.log("🚀 ~ file: page.tsx:26 ~ useEffect ~ emit:")
   },[])
 
   return (

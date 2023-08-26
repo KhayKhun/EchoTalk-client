@@ -46,7 +46,17 @@ const Message = () => {
 
   return (
     <div className='message-container'>
-      <h1 className='m-2'>{roomName ? roomName : 'Choose a server to chat' }</h1>
+      {!roomName && <p>No server joined yet</p>}
+      {
+        roomName 
+      ?
+        <div className='flex flex-col md:flex items-center gap-2 py-2'>
+          <h2 className='text-xl md:text-2xl font-semibold '>{roomName}</h2>
+          <span className='text-[10px] md:text-sm text-gray-500 font-regular'>(Servers will be deleted after 3 hours)</span>
+        </div> 
+      :
+        null
+      }
       <div className='w-full h-[2px] rounded-full bg-gray-600'/>
       <ul id='list'>
         {
@@ -55,14 +65,19 @@ const Message = () => {
         })
       }
       </ul>
+      {!roomName && <p>Create or Join a server to chat =) </p>}
 
-      <footer>
+      {
+        roomName ?
+        <footer>
         <input
         placeholder='Write a message...'
         ref={textaraRef}
         />
         <button onClick={handleSendMessage}>Send</button>
       </footer>
+      :
+      null }
     </div>
   )
 }

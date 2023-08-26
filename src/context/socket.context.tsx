@@ -51,10 +51,19 @@ function SocketProvider(props :any){
         setRooms(value)
     })
 
-    socket.on(EVENTS.SERVER.JOINED_ROOM, ({roomId,roomName})=>{
+    socket.on(EVENTS.SERVER.JOINED_ROOM, ({roomId,roomName,message,time})=>{
         console.log(roomName)
         setRoomId(roomId)
         setRoomName(roomName)
+        setMessages([
+            ...messages,
+            {
+                username : 'server',
+                message ,
+                time,
+                roomId
+            }
+        ])
     })
 
     socket.on(EVENTS.SERVER.SEND_ROOM_MESSAGE, (({message , username, time,roomId}) => {
@@ -74,9 +83,24 @@ function SocketProvider(props :any){
         ])
     }))
 
-    socket.on(EVENTS.SERVER.JOIN_ROOM, ({joinRoomId , roomName}) => {
+// Join room message issue 
+    socket.on(EVENTS.SERVER.JOIN_ROOM, ({joinRoomId , roomName, message, time}) => {
         setRoomId(joinRoomId)
         setRoomName(roomName)
+        if(message){
+            setMessages([
+            ...messages,
+            {
+                username : 'server',
+                message ,
+                time,
+                roomId : joinRoomId,
+            }
+        ])
+        }
+        // Join room message issue 
+
+        // console.log(message)
     })
 
     socket.on(EVENTS.SERVER.FRESHER , ({rooms}) => {

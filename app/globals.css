@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 26-8-2023 */
 @layer components{
     body {
-        @apply bg-[#313338] text-gray-200 flex justify-center
+        @apply  bg-[#2d2d30] text-gray-200 flex justify-center
     }
     .label {
         @apply text-sm mt-4 mb-2
@@ -14,41 +14,44 @@
         @apply grid grid-cols-12 gap-4 w-full m-0 p-0
     }
     .room {
-        @apply col-span-3 bg-[#2d2d30]
+        @apply col-span-3 sm:col-span-3 md:col-span-3
     }
     .message{
-        @apply col-span-9
+        @apply col-span-9 sm:col-span-9 md:col-span-9
     }
     .message-container{
-        @apply relative h-screen flex flex-col items-center p-[2%]
+        @apply relative h-screen flex flex-col items-center p-[2%] bg-[#313338]
     }
     .message-container footer{
-        @apply absolute w-[96%] bottom-[2%] rounded-md border border-transparent bg-[#383A40] flex justify-center gap-3 items-center p-1
+        @apply absolute w-[96%] bottom-[2%] rounded-md border border-transparent bg-[#383A40] flex justify-between md:px-3 sm:gap-3 items-center p-1
     }
     .message-container footer input {
-        @apply max-h-[80px] outline-none bg-transparent text-sm p-3
+        @apply max-h-[80px] outline-none bg-transparent text-[10px] sm:text-sm p-3 md:w-[60%]
+    }
+    .message-container footer button {
+        @apply text-[11px] sm:text-sm md:text-base bg-teal-600 rounded-md p-3 hover:bg-teal-700
     }
     .message-container ul{
         @apply flex flex-col gap-4 w-full relative h-[70vh] overflow-y-scroll
     }
     .message-card{
-        @apply flex gap-5 p-2
+        @apply flex gap-3 sm:gap-5 p-1 sm:p-2
     }
     .message-username {
-        @apply text-[16px] tracking-wider font-semibold inline
+        @apply text-sm md:text-[16px] tracking-wider font-semibold inline
     }
     .message-time {
-        @apply text-gray-400 text-sm font-medium ml-4
+        @apply text-gray-400 text-[10px] sm:text-sm font-medium ml-4
     }
     .message-text {
-        @apply text-gray-100 text-[13px] mt-2 font-normal
+        @apply text-gray-100 text-[12px] md:text-[13px] mt-2 font-normal
     }
 
     .chat-pf{
-        @apply w-auto h-[50px] rounded-full
+        @apply w-auto h-[40px] md:h-[50px] rounded-full bg-gray-300 p-1
     }
     .server-list{
-        @apply flex flex-col gap-1 items-center
+        @apply flex flex-col gap-1 w-full
     }
     .server-list button{
         @apply hover:bg-gray-700 w-full flex flex-col items-center
