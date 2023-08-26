@@ -35,7 +35,7 @@ export default function Home() {
         :
 
         <main className='w-screen h-screen flex justify-center items-center'>
-          <div className='w-[30vw] flex flex-col gap-2'>
+          <div className='w-[80vw] sm:w-[50vw] md:w-[30vw] lg:w-[25vw] flex flex-col gap-2'>
             <h1 className='mb-3 text-lg'>Enter your name to continue</h1>
             <input type="text" ref={usernameRef} className='border p-3 rounded-lg h-[40px] outline-none text-gray-800 ' placeholder='eg. John Pettaly'/>
             <button onClick={handleUsername} className='bg-blue-600 p-3 rounded-lg text-sm h-[40px]'>Start</button>
